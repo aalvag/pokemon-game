@@ -30,6 +30,11 @@ export default {
 <style scoped>
 .pokemon-container {
   height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
 }
 .hidden-pokemon {
   filter: brightness(0);
@@ -37,7 +42,6 @@ export default {
 img {
   height: 200px;
   position: absolute;
-  right: 32%;
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

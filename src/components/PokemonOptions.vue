@@ -1,10 +1,8 @@
 <template>
   <div class="options-container">
-    <ul>
-      <li v-for="pokemon in pokemons" :key="pokemon.id">
-        {{ pokemon.name }}
-      </li>
-    </ul>
+    <button v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit('select-pokemon', pokemon.id)">
+      {{ pokemon.name }}
+    </button>
   </div>
 </template>
 
@@ -17,9 +15,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    console.log(this.pokemons);
-  },
 };
 </script>
 
@@ -28,22 +23,36 @@ ul {
   list-style-type: none;
 }
 
-li {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 10px;
+button {
+  background: #fff;
+  border: none;
+  color: #3e7ae7;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 36px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  box-shadow: 0px 4px 10px 1px;
   cursor: pointer;
-  margin-bottom: 10px;
-  width: 250px;
+  transition: all 0.2s ease-out;
 }
 
-li:hover {
-  background-color: #f1f1f1;
+button:hover {
+  box-shadow: 0px 4px 10px 4px;
+  background-color: #fff6d1;
 }
 
 .options-container {
+  /* display: flex;
+  justify-content: center; */
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 12px; */
 }
 </style>
 
